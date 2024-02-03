@@ -41,4 +41,9 @@ class DB(private val context: Context, factory: SQLiteDatabase.CursorFactory?)
         val result = db.rawQuery("SELECT * FROM users u WHERE u.login = '$login' and u.password = '$password'", null)
         return result.moveToFirst()
     }
+
+    fun ifExists(login: String) : Boolean {
+        val db = this.readableDatabase
+        return db.rawQuery("SELECT * FROM users WHERE login = '$login'", null).moveToFirst()
+    }
 }

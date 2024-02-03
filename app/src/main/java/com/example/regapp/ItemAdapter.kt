@@ -45,6 +45,7 @@ class ItemAdapter(var items: List<Item>, var context: Context) : RecyclerView.Ad
             val intent = Intent(context, ItemActivity::class.java)
             intent.putExtra("itemTitle", items[position].title)
             intent.putExtra("itemDesc", items[position].text)
+            intent.putExtra("inner_img", imageID.toString())
             context.startActivity(intent)
         }
     }
